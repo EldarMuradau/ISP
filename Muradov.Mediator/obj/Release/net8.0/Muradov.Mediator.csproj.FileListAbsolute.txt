@@ -1,0 +1,11 @@
+E:\vs_projects\PROG\ISP\Muradov.Mediator\bin\Release\net8.0\Muradov.Mediator.deps.json
+E:\vs_projects\PROG\ISP\Muradov.Mediator\bin\Release\net8.0\Muradov.Mediator.dll
+E:\vs_projects\PROG\ISP\Muradov.Mediator\bin\Release\net8.0\Muradov.Mediator.pdb
+E:\vs_projects\PROG\ISP\Muradov.Mediator\obj\Release\net8.0\Muradov.Mediator.GeneratedMSBuildEditorConfig.editorconfig
+E:\vs_projects\PROG\ISP\Muradov.Mediator\obj\Release\net8.0\Muradov.Mediator.AssemblyInfoInputs.cache
+E:\vs_projects\PROG\ISP\Muradov.Mediator\obj\Release\net8.0\Muradov.Mediator.AssemblyInfo.cs
+E:\vs_projects\PROG\ISP\Muradov.Mediator\obj\Release\net8.0\Muradov.Mediator.csproj.CoreCompileInputs.cache
+E:\vs_projects\PROG\ISP\Muradov.Mediator\obj\Release\net8.0\Muradov.Mediator.dll
+E:\vs_projects\PROG\ISP\Muradov.Mediator\obj\Release\net8.0\refint\Muradov.Mediator.dll
+E:\vs_projects\PROG\ISP\Muradov.Mediator\obj\Release\net8.0\Muradov.Mediator.pdb
+E:\vs_projects\PROG\ISP\Muradov.Mediator\obj\Release\net8.0\ref\Muradov.Mediator.dll

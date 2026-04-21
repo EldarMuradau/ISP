@@ -1,0 +1,17 @@
+E:\vs_projects\PROG\ISP\Muradov.Features\bin\Release\net8.0\Muradov.Features.deps.json
+E:\vs_projects\PROG\ISP\Muradov.Features\bin\Release\net8.0\Muradov.Features.dll
+E:\vs_projects\PROG\ISP\Muradov.Features\bin\Release\net8.0\Muradov.Features.pdb
+E:\vs_projects\PROG\ISP\Muradov.Features\bin\Release\net8.0\Muradov.Domain.dll
+E:\vs_projects\PROG\ISP\Muradov.Features\bin\Release\net8.0\Muradov.Mediator.dll
+E:\vs_projects\PROG\ISP\Muradov.Features\bin\Release\net8.0\Muradov.Mediator.pdb
+E:\vs_projects\PROG\ISP\Muradov.Features\bin\Release\net8.0\Muradov.Domain.pdb
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\Muradov.Features.csproj.AssemblyReference.cache
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\Muradov.Features.GeneratedMSBuildEditorConfig.editorconfig
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\Muradov.Features.AssemblyInfoInputs.cache
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\Muradov.Features.AssemblyInfo.cs
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\Muradov.Features.csproj.CoreCompileInputs.cache
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\Muradov..E5E8A4E6.Up2Date
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\Muradov.Features.dll
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\refint\Muradov.Features.dll
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\Muradov.Features.pdb
+E:\vs_projects\PROG\ISP\Muradov.Features\obj\Release\net8.0\ref\Muradov.Features.dll
