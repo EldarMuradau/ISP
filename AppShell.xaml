@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:ipr1.Pages"
+       x:Class="ipr1.AppShell"
+       Title="ipr1"
+       FlyoutBehavior="Flyout">
+
+    <ShellContent Title="Интеграл"
+                  ContentTemplate="{DataTemplate pages:IntegralPage}"
+                  Route="IntegralPage" />
+
+    <ShellContent Title="Конвертер валют"
+                  ContentTemplate="{DataTemplate pages:CurrencyConverterPage}"
+                  Route="CurrencyConverterPage" />
+
+</Shell>

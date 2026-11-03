@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ipr1.Models"
+             x:Class="ipr1.Pages.CurrencyConverterPage"
+             Title="Конвертер валют">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="10">
+
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Дата:" VerticalOptions="Center" />
+                <DatePicker x:Name="RateDatePicker" DateSelected="OnDateSelected" />
+            </HorizontalStackLayout>
+
+            <Label Text="Официальный курс НБ РБ" FontAttributes="Bold" />
+            <Label x:Name="ErrorLabel" TextColor="Red" IsVisible="False" />
+
+            <VerticalStackLayout x:Name="RatesList" BindableLayout.ItemsSource="{Binding}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:Rate">
+                        <Grid ColumnDefinitions="*,Auto" Padding="0,2">
+                            <Label Grid.Column="0" Text="{Binding Display}" />
+                            <Label Grid.Column="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Scale}" />
+                                        <Span Text=" = " />
+                                        <Span Text="{Binding OfficialRate}" />
+                                        <Span Text=" BYN" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <Label Text="Конвертация" FontAttributes="Bold" Margin="0,15,0,0" />
+
+            <Picker x:Name="CurrencyPicker"
+                    Title="Выберите валюту"
+                    ItemDisplayBinding="{Binding Display}"
+                    SelectedIndexChanged="OnCurrencyChanged" />
+
+            <Label Text="Сумма в BYN" />
+            <Entry x:Name="BynEntry" Keyboard="Numeric" Placeholder="0" />
+
+            <Label x:Name="ForeignLabel" Text="Сумма в валюте" />
+            <Entry x:Name="ForeignEntry" Keyboard="Numeric" Placeholder="0" />
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="BYN → валюта" Clicked="OnBynToForeignClicked" />
+                <Button Text="валюта → BYN" Clicked="OnForeignToBynClicked" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
