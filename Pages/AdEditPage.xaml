@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:models="clr-namespace:ipr2.ViewModels"
+             xmlns:entities="clr-namespace:ipr2.Domain.Entities;assembly=ipr2.Domain"
+             x:Class="ipr2.Pages.AdEditPage"
+             x:DataType="models:AdEditViewModel"
+             Title="{Binding Title}">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding LoadBrandsCommand}" />
+    </ContentPage.Behaviors>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="6">
+            <Label Text="Brand" />
+            <Picker ItemsSource="{Binding Brands}"
+                    ItemDisplayBinding="{Binding Name, x:DataType=entities:CarBrand}"
+                    SelectedItem="{Binding SelectedBrand}" />
+            <Label Text="Model" />
+            <Entry Text="{Binding Name}" />
+            <Label Text="Price, $" />
+            <Entry Text="{Binding Price}" Keyboard="Numeric" />
+            <Label Text="Year" />
+            <Entry Text="{Binding Year}" Keyboard="Numeric" />
+            <Label Text="Mileage, km" />
+            <Entry Text="{Binding Mileage}" Keyboard="Numeric" />
+            <Label Text="Description" />
+            <Editor Text="{Binding Description}" AutoSize="TextChanges" />
+            <Button Text="Save" Command="{Binding SaveCommand}" Margin="0,12,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:models="clr-namespace:ipr2.ViewModels"
+             xmlns:entities="clr-namespace:ipr2.Domain.Entities;assembly=ipr2.Domain"
+             xmlns:conv="clr-namespace:ipr2.ValueConverters"
+             x:Class="ipr2.Pages.BrandsPage"
+             x:DataType="models:BrandsViewModel"
+             Title="Car brands">
+
+    <ContentPage.Resources>
+        <conv:PriceToColorValueConverter x:Key="PriceToColor" />
+        <toolkit:IsNotNullConverter x:Key="IsNotNull" />
+    </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing"
+                                        Command="{Binding UpdateGroupListCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add ad" Command="{Binding AddAdCommand}" />
+        <ToolbarItem Text="Add brand" Order="Secondary" Command="{Binding AddBrandCommand}" />
+        <ToolbarItem Text="Edit brand" Order="Secondary" Command="{Binding EditBrandCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*" Padding="12" RowSpacing="8">
+        <Picker Title="Select brand"
+                ItemsSource="{Binding Brands}"
+                ItemDisplayBinding="{Binding Name, x:DataType=entities:CarBrand}"
+                SelectedItem="{Binding SelectedBrand}">
+            <Picker.Behaviors>
+                <toolkit:EventToCommandBehavior EventName="SelectedIndexChanged"
+                                                Command="{Binding UpdateMembersListCommand}" />
+            </Picker.Behaviors>
+        </Picker>
+
+        <VerticalStackLayout Grid.Row="1"
+                             IsVisible="{Binding SelectedBrand, Converter={StaticResource IsNotNull}}">
+            <Label Text="{Binding SelectedBrand.Name}" FontSize="22" FontAttributes="Bold" />
+            <Label Text="{Binding SelectedBrand.Country, StringFormat='Country: {0}'}" />
+            <Label Text="{Binding SelectedBrand.FoundedYear, StringFormat='Founded: {0}'}" />
+            <Label Text="{Binding Ads.Count, StringFormat='Ads: {0}'}" />
+        </VerticalStackLayout>
+
+        <Label Grid.Row="2" Text="Ads priced over 30 000 $ are highlighted"
+               FontSize="12" TextColor="Gray" />
+
+        <CollectionView Grid.Row="3" ItemsSource="{Binding Ads}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="entities:CarAd">
+                    <Border Margin="0,4" Padding="12,8"
+                            StrokeThickness="2" StrokeShape="RoundRectangle 12"
+                            Stroke="{Binding Price, Converter={StaticResource PriceToColor}}">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type models:BrandsViewModel}}, Path=ShowDetailsCommand}"
+                                CommandParameter="{Binding}" />
+                        </Border.GestureRecognizers>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" FontSize="16" FontAttributes="Bold" />
+                                <HorizontalStackLayout Spacing="12">
+                                    <Label Text="{Binding Year}" FontSize="12" TextColor="Gray" />
+                                    <Label Text="{Binding Mileage, StringFormat='{0:N0} km'}" FontSize="12" TextColor="Gray" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" VerticalOptions="Center"
+                                   Text="{Binding Price, StringFormat='{0:N0} $'}"
+                                   FontSize="16" FontAttributes="Bold" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

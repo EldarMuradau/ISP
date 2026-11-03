@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:models="clr-namespace:ipr2.ViewModels"
+             xmlns:conv="clr-namespace:ipr2.ValueConverters"
+             x:Class="ipr2.Pages.AdDetailsPage"
+             x:DataType="models:AdDetailsViewModel"
+             Title="Ad details">
+
+    <ContentPage.Resources>
+        <conv:IdToImageValueConverter x:Key="IdToImage" />
+    </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Appearing" Command="{Binding RefreshCommand}" />
+    </ContentPage.Behaviors>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" Command="{Binding EditCommand}" />
+        <ToolbarItem Text="Photo" Command="{Binding PickImageCommand}" />
+        <ToolbarItem Text="Delete" Order="Secondary" Command="{Binding DeleteCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="8">
+            <Image Source="{Binding Ad.Id, Converter={StaticResource IdToImage}}"
+                   HeightRequest="220" Aspect="AspectFit" />
+            <Label Text="{Binding Ad.Brand.Name}" FontSize="14" TextColor="Gray" />
+            <Label Text="{Binding Ad.Name}" FontSize="24" FontAttributes="Bold" />
+            <Label Text="{Binding Ad.Price, StringFormat='Price: {0:N0} $'}" FontSize="18" />
+            <Label Text="{Binding Ad.Year, StringFormat='Year: {0}'}" />
+            <Label Text="{Binding Ad.Mileage, StringFormat='Mileage: {0:N0} km'}" />
+            <Label Text="{Binding Ad.Description}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

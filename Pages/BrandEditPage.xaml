@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ipr2.ViewModels"
+             x:Class="ipr2.Pages.BrandEditPage"
+             x:DataType="models:BrandEditViewModel"
+             Title="{Binding Title}">
+
+    <VerticalStackLayout Padding="16" Spacing="6">
+        <Label Text="Name" />
+        <Entry Text="{Binding Name}" />
+        <Label Text="Country" />
+        <Entry Text="{Binding Country}" />
+        <Label Text="Founded (year)" />
+        <Entry Text="{Binding FoundedYear}" Keyboard="Numeric" />
+        <Button Text="Save" Command="{Binding SaveCommand}" Margin="0,12,0,0" />
+    </VerticalStackLayout>
+</ContentPage>
